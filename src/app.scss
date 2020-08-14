@@ -6,9 +6,13 @@ html {
   font-family: $font-family;
 }
 
+body {
+  margin: units(0);
+}
+
 .homepage {
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: units(20px 80px);
+  padding: units(20px 64px);
 }

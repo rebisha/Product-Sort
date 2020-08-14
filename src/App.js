@@ -1,13 +1,17 @@
 import React from "react";
 // components
+import Header from "./Components/Header/Header";
 import ProductCardCollection from "./Components/Product-Card-Collection/ProductCardCollection";
 
 import styles from "./app.scss";
 
 const App = () => {
   return (
-    <div className={styles.homepage}>
-      <ProductCardCollection />
+    <div>
+      <Header />
+      <div className={styles.homepage}>
+        <ProductCardCollection />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,7 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/functions";
+
+.header {
+  background-color: $dark-grey;
+  padding: units(20px 64px);
+}
