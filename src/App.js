@@ -1,9 +1,15 @@
 import React from "react";
+// components
+import ProductCardCollection from "./Components/Product-Card-Collection/ProductCardCollection";
+
+import styles from "./app.scss";
 
 const App = () => {
-    return (
-        <h1>Hello World!! </h1>
-    )
-}
+  return (
+    <div className={styles.homepage}>
+      <ProductCardCollection />
+    </div>
+  );
+};
 
 export default App;

@@ -1,0 +1,14 @@
+@import "./assets/styles/functions";
+@import "./assets/styles/variables";
+
+html {
+  background-color: $light-grey;
+  font-family: $font-family;
+}
+
+.homepage {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: units(20px 80px);
+}

@@ -1,0 +1,39 @@
+@import "../../assets/styles/functions";
+@import "../../assets/styles/variables";
+
+.productCard {
+  &Wrapper {
+    align-items: center;
+    background-color: $white;
+    display: flex;
+    flex: 1 0 calc(27.333% - 20px);
+    flex-direction: column;
+    margin: units(10px 10px 20px);
+    max-width: calc(27.333% - 20px);
+    padding: units(20px);
+  }
+
+  &Image {
+    font-family: "object-fit: contain; object-position: top;";
+    height: units(185px);
+    object-fit: contain;
+    object-position: top;
+    width: 100%;
+  }
+
+  &Item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &Title {
+    font-size: units(22px);
+    margin-bottom: units(10px);
+  }
+
+  &Price {
+    font-size: units(18px);
+    margin: units(0);
+  }
+}

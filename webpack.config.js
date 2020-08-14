@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const loader = require("sass-loader");
 
-const isDevelopment = process.env.NODE_ENV === "development"
+const isDevelopment = process.env.NODE_ENV === "development";
 
 module.exports = {
   module: {
@@ -11,14 +12,14 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.html$/,
         use: {
-          loader: "html-loader"
-        }
+          loader: "html-loader",
+        },
       },
       {
         test: /\.s(a|c)ss$/,
@@ -29,44 +30,47 @@ module.exports = {
             loader: "css-loader",
             options: {
               modules: true,
-              sourceMap: isDevelopment
-            }
+              sourceMap: isDevelopment,
+            },
           },
           {
             loader: "sass-loader",
             options: {
-              sourceMap: isDevelopment
-            }
-          }
-        ]
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: {
-          loader: "file-loader"
-        }
-      }
-    ]
+          loader: "file-loader?name=[name].[ext]",
+          options: {
+            esModule: false,
+          },
+        },
+      },
+    ],
   },
   output: {
-    publicPath: "/"
+    publicPath: "/",
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
-      filename: "./index.html"
+      filename: "./index.html",
     }),
     new MiniCssExtractPlugin({
       filename: isDevelopment ? "[name].css" : "[name].[hash].css",
-      chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css"
-    })
+      chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css",
+    }),
   ],
   resolve: {
-    extensions: [".js", ".jsx", ".scss"]
+    extensions: [".js", ".jsx", ".scss"],
   },
   devServer: {
     contentBase: "./dist",
-    port: 3000,
-    historyApiFallback: true
-  }
+    port: 8080,
+    historyApiFallback: true,
+  },
 };

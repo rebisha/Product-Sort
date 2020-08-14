@@ -1,0 +1,11 @@
+@import "../../assets/styles/functions";
+@import "../../assets/styles/variables";
+
+.productCollectionWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  padding: units(10px 16px);
+  border: 1px solid $grey;
+  justify-content: space-between;
+  width: 100%;
+}
