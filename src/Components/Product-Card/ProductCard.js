@@ -1,11 +1,12 @@
 import React from "react";
-import { string, number } from "prop-types";
+import { withRouter } from "react-router-dom";
+import { string, number, object } from "prop-types";
 
 import styles from "./productCard.scss";
 
-const ProductCard = ({ name, price, image }) => {
+const ProductCard = ({ name, price, image, linkUrl, match, history }) => {
   return (
-    <div className={styles.productCardWrapper}>
+    <div className={styles.productCardWrapper} onClick={() => history.push(`${match.url}${linkUrl}`)}>
       <img
         className={styles.productCardImage}
         src={require(`../../assets/images/${image}`)}
@@ -23,6 +24,13 @@ ProductCard.propTypes = {
   name: string,
   price: number,
   image: string,
+  linkUrl: string,
+  match: object,
+  history: object,
 };
 
-export default ProductCard;
+ProductCard.defaultProps = {
+  linkUrl: "shop"
+}
+
+export default withRouter(ProductCard);
