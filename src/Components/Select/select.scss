@@ -1,12 +1,11 @@
 @import "../../assets/styles/functions";
 
 .select {
+    &:first-child {
+        margin-right: 50px;
+    }
+    
     &Label {
         margin-right: units(5px);
-    }
-
-    &Wrapper {
-        text-align: center;
-        width: units(60px);
     }
 }

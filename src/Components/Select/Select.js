@@ -1,14 +1,14 @@
 import React from "react";
-import { array, func } from "prop-types";
+import { array, func, string } from "prop-types";
 
 import styles from "./select.scss";
 
-const Select = ({ sizes, onChange }) => {
+const Select = ({ initialValue, selectLabel, sizes, onChange }) => {
   return (
     <div className={styles.select}>
-      <label htmlFor="sizes" className={styles.selectLabel}>Filter by size:</label>
+      <label htmlFor="sizes" className={styles.selectLabel}>{selectLabel}</label>
       <select name="sizes" id="sizes" onChange={onChange} className={styles.selectWrapper}>
-        <option value="all">All</option>
+        <option value={initialValue}>{initialValue}</option>
         {sizes.map((key, value) => {
           return (
             <option key={value} value={key}>
@@ -24,6 +24,8 @@ const Select = ({ sizes, onChange }) => {
 Select.propTypes = {
   sizes: array,
   onChange: func,
+  selectLabel: string,
+  initialValue: string
 };
 
 export default Select;

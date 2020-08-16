@@ -19,4 +19,10 @@
   .totalItemCount {
     margin: 0;
   }
+
+  .selectorWrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+  }
 }
