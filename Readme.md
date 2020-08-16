@@ -1,4 +1,4 @@
-## Product Filter
+## Product Filter and Sort
 
 This is a React application that displays a list of shirts from the json data. The application also provides the user an option to filter the products on the basis of sizes and sort the products based on the price i.e Low to High and vice-versa.
 
