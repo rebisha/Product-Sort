@@ -1,5 +1,6 @@
 import React from "react";
 import { string, number } from "prop-types";
+
 import styles from "./productCard.scss";
 
 const ProductCard = ({ name, price, image }) => {

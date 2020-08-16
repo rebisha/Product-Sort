@@ -1,11 +1,22 @@
 @import "../../assets/styles/functions";
 @import "../../assets/styles/variables";
 
-.productCollectionWrapper {
+.productCollection {
   display: flex;
-  flex-flow: row wrap;
-  padding: units(10px 0);
-  border: 1px solid $grey;
-  justify-content: space-between;
-  width: 100%;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-between;  
+  
+  &Wrapper {
+    border: 1px solid $grey;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: units(10px 0);
+    width: 100%;
+  }
+
+  .totalItemCount {
+    margin: 0;
+  }
 }
