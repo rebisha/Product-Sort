@@ -59,7 +59,7 @@ const ProductCardCollection = () => {
 
       <Fragment>
         {
-          selected && selected.toLowerCase() !== "all" && sortProduct ?
+          selected && selected.toLowerCase() !== "all" ?
             filterWithSize(productWithFilter) : filterWithSize(productWithoutFilter)
         }
       </Fragment>

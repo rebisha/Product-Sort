@@ -1,5 +1,6 @@
 @import "./assets/styles/functions";
 @import "./assets/styles/variables";
+@import "./assets/styles/mixins";
 
 html {
   background-color: $light-grey;
@@ -11,5 +12,13 @@ body {
 }
 
 .homepage {
-  padding: units(20px 64px);
+  padding: units(20px 16px);
+
+  @include medium {
+    padding: units(20px 32px);
+  }
+
+  @include large {
+    padding: units(20px 64px);
+  }
 }

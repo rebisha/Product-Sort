@@ -1,16 +1,26 @@
 @import "../../assets/styles/functions";
 @import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
 
 .productCard {
   &Wrapper {
     align-items: center;
     background-color: $white;
     display: flex;
-    flex: 1 0 calc(27.333% - 20px);
     flex-direction: column;
     margin: units(10px 15px 20px);
-    max-width: calc(27.333% - 20px);
+    width: 100%;
     padding: units(20px);
+
+    @include medium {
+      flex: 1 0 calc(40.333% - 20px);
+      max-width: calc(45.333% - 20px);
+    }
+
+    @include large {
+      flex: 1 0 calc(27.333% - 20px);
+      max-width: calc(27.333% - 20px);
+    }
   }
 
   &Image {

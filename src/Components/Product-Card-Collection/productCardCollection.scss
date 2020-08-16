@@ -1,9 +1,10 @@
 @import "../../assets/styles/functions";
 @import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
 
 .productCollection {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;  
   
@@ -22,7 +23,25 @@
 
   .selectorWrapper {
     display: flex;
-    justify-content: flex-end;
-    width: 50%;
+    justify-content: space-between;
+    width: 100%;
+
+    @include medium {
+      justify-content: flex-end;
+      width: 80%;
+    }
+
+    @include large {
+      justify-content: flex-end;
+      width: 80%;
+    }
+  }
+
+  @include medium {
+    flex-direction: row-reverse;
+  }
+
+  @include large {
+    flex-direction: row-reverse;
   }
 }

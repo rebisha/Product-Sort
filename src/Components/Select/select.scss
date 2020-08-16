@@ -1,8 +1,18 @@
 @import "../../assets/styles/functions";
+@import "../../assets/styles/mixins";
 
 .select {
     &:first-child {
-        margin-right: 50px;
+        margin-right: 25px;      
+
+        @include medium {
+            margin-right: 50px;
+        }
+
+        @include large {
+            margin-right: 50px;
+        }
+  
     }
     
     &Label {
