@@ -1,0 +1,21 @@
+@import "../../assets/styles/functions";
+@import "../../assets/styles/mixins";
+
+.select {
+    &:first-child {
+        margin-right: 25px;      
+
+        @include medium {
+            margin-right: 50px;
+        }
+
+        @include large {
+            margin-right: 50px;
+        }
+  
+    }
+    
+    &Label {
+        margin-right: units(5px);
+    }
+}

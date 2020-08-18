@@ -1,0 +1,63 @@
+@import "../../assets/styles/functions";
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
+.productCard {
+  &Wrapper {
+    align-items: center;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    margin: units(10px 15px 20px);
+    width: 100%;
+    padding: units(20px);
+
+    @include medium {
+      flex: 1 0 calc(40.333% - 20px);
+      max-width: calc(45.333% - 20px);
+    }
+
+    @include large {
+      flex: 1 0 calc(27.333% - 20px);
+      max-width: calc(27.333% - 20px);
+    }
+  }
+
+  &Image {
+    font-family: "object-fit: contain; object-position: top;";
+    height: units(185px);
+    object-fit: contain;
+    object-position: top;
+    width: 100%;
+  }
+
+  &Item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &Title {
+    font-size: units(22px);
+    margin-bottom: units(10px);
+  }
+
+  &Price {
+    font-size: units(18px);
+    margin: units(0);
+  }
+
+  &Btn {
+    background-color: $dark-grey;
+    border: none;
+    border-radius: units(4px);
+    color: $white;
+    cursor: pointer;
+    font-family: $font-family;
+    font-size: units(16px);
+    font-weight: bold;
+    letter-spacing: units(0.5px);
+    margin: units(10px 0);
+    padding: units(10px 20px);
+  }
+}

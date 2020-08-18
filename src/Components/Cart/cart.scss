@@ -1,0 +1,8 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/functions";
+
+.cartItemCount {
+    color: $black;
+    margin: units(0 0 0 50px);
+    text-decoration: none;
+}

@@ -1,5 +1,5 @@
 {
-  "name": "browser-coding",
+  "name": "product-sort",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -26,11 +26,15 @@
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.10.0",
     "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "reselect": "^4.0.0",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
