@@ -46,4 +46,18 @@
     font-size: units(18px);
     margin: units(0);
   }
+
+  &Btn {
+    background-color: $dark-grey;
+    border: none;
+    border-radius: units(4px);
+    color: $white;
+    cursor: pointer;
+    font-family: $font-family;
+    font-size: units(16px);
+    font-weight: bold;
+    letter-spacing: units(0.5px);
+    margin: units(10px 0);
+    padding: units(10px 20px);
+  }
 }

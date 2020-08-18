@@ -1,12 +1,14 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
-import { string, number, object } from "prop-types";
+import { object, func } from "prop-types";
+import { connect } from "react-redux";
+import { addItem } from "../../Redux/Cart/action";
 
 import styles from "./productCard.scss";
 
-const ProductCard = ({ name, price, image, linkUrl, match, history }) => {
+const ProductCard = ({ item, addItem }) => {
+  const { name, price, image } = item;
   return (
-    <div className={styles.productCardWrapper} onClick={() => history.push(`${match.url}${linkUrl}`)}>
+    <div className={styles.productCardWrapper}>
       <img
         className={styles.productCardImage}
         src={require(`../../assets/images/${image}`)}
@@ -16,21 +18,22 @@ const ProductCard = ({ name, price, image, linkUrl, match, history }) => {
         <h3 className={styles.productCardTitle}>{name}</h3>
         <p className={styles.productCardPrice}>${price}</p>
       </div>
+      <button type="button" className={styles.productCardBtn} onClick={() => addItem(item)}>Add to Cart</button>
     </div>
   );
 };
 
 ProductCard.propTypes = {
-  name: string,
-  price: number,
-  image: string,
-  linkUrl: string,
-  match: object,
-  history: object,
+  item: object,
+  addItem: func
 };
 
 ProductCard.defaultProps = {
   linkUrl: "shop"
 }
 
-export default withRouter(ProductCard);
+const mapDispatchToProps = dispatch => ({
+  addItem: item => dispatch(addItem(item))
+});
+
+export default connect(null, mapDispatchToProps)(ProductCard);

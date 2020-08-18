@@ -1,18 +1,21 @@
 import React, { Fragment, useState } from "react";
-import PRODUCTS from "./data";
+import { connect } from "react-redux";
+import { array } from "prop-types";
+
 import ProductCard from "../Product-Card/ProductCard";
 import Select from "../Select/Select";
-
+import Cart from "../Cart/Cart";
+import { selectDirectoryCollections } from "../../Redux/Directory/selector";
 import styles from "./productCardCollection.scss";
 
 const sorting = ["Price - Low to High", "Price - High to Low"];
 
-const ProductCardCollection = () => {
+const ProductCardCollection = ({ collection }) => {
   const [selected, setSelected] = useState();
   const [sortProduct, setSortProduct] = useState();
-  const [productList, setProductList] = useState(PRODUCTS);
+  const [productList, setProductList] = useState(collection);
 
-  const sizes = PRODUCTS.reduce((arr, ele) => {
+  const sizes = collection.reduce((arr, ele) => {
     const actualSize = ele.sizes.filter(size => !arr.includes(size));
     return arr.concat(actualSize);
   }, []);
@@ -24,9 +27,9 @@ const ProductCardCollection = () => {
   const handleSort = e => {
     setSortProduct(e.target.value);
     if (e.target.value.indexOf("Low to High") > -1) {
-      setProductList(PRODUCTS.sort((a, b) => a.price - b.price));
+      setProductList(collection.sort((a, b) => a.price - b.price));
     } else if (e.target.value.includes("High to Low")) {
-      setProductList(PRODUCTS.sort((a, b) => b.price - a.price))
+      setProductList(collection.sort((a, b) => b.price - a.price))
     }
   }
 
@@ -42,12 +45,12 @@ const ProductCardCollection = () => {
   const productWithFilter = productList.filter(item => {
     return item.sizes.indexOf(selected) > -1;
   }
-  ).map(({ id, ...productProps }) => {
-    return <ProductCard key={id} {...productProps} />;
+  ).map(item => {
+    return <ProductCard key={item.id} item={item} />;
   });
 
-  const productWithoutFilter = productList.map(({ id, ...productProps }) => {
-    return <ProductCard key={id} {...productProps} />;
+  const productWithoutFilter = productList.map(item => {
+    return <ProductCard key={item.id} item={item} />;
   });
 
   return (
@@ -55,6 +58,7 @@ const ProductCardCollection = () => {
       <div className={styles.selectorWrapper}>
         <Select sizes={sorting} selectLabel="Order by: " initialValue="" onChange={handleSort} />
         <Select sizes={sizes} selectLabel="Filter by size:" initialValue="All" onChange={handleChange} />
+        <Cart />
       </div>
 
       <Fragment>
@@ -67,4 +71,13 @@ const ProductCardCollection = () => {
   );
 };
 
-export default ProductCardCollection;
+ProductCardCollection.propTypes = {
+  collection: array
+}
+
+const mapStateToProps = state => ({
+  collection: selectDirectoryCollections(state)
+});
+
+
+export default connect(mapStateToProps)(ProductCardCollection);
